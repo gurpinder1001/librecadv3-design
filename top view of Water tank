@@ -1,0 +1,20 @@
+layer=active.proxy.layerByName("0")
+d=active.document()
+b=Builder(d)
+
+l1=Circle(Coord(0,-1595),550,layer)
+b:append(l1):execute()
+
+function lline(x,y,xx,yy)
+l1=Line(Coord(x,y),Coord(xx,yy),layer)
+b:append(l1)
+b:execute()
+end
+--beam at upper base
+lline(-550,-1585,-600,-1585)
+lline(-550,-1605,-600,-1605)
+lline(-600,-1585,-600,-1605)
+lline(550,-1585,600,-1585)
+lline(550,-1605,600,-1605)
+lline(600,-1585,600,-1605)
+

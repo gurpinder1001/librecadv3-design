@@ -1,0 +1,64 @@
+
+layer=active.proxy.layerByName("0")
+d=active.document()
+b=Builder(d)
+function lline(x,y,xx,yy)
+l1=Line(Coord(x,y),Coord(xx,yy),layer)
+b:append(l1)
+b:execute()
+end
+-- used to create beam or pillar
+function rectangle(x,y,xx,yy)
+l1=Line(Coord(x,y),Coord(xx,y),layer)
+
+l2=Line(Coord(xx,y),Coord(xx,yy),layer)
+
+l3=Line(Coord(xx,yy),Coord(x,yy),layer)
+
+l4=Line(Coord(x,yy),Coord(x,y),layer)
+b:append(l1):append(l2):append(l3):append(l4)
+b:execute()
+end
+--base of tank
+
+lline(-500,1000,500,1000)
+lline(-500,1000,-480,980)
+lline(500,1000,480,980)
+lline(-480,980,480,980)
+
+-- pillar
+
+rectangle(-400,980,-380,-1000)
+rectangle(-300,980,-280,-1000)
+rectangle(0,980,20,-1000)
+rectangle(300,980,280,-1000)
+rectangle(400,980,380,-1000)
+
+--beam
+
+rectangle(-400,-1000,400,-980)
+rectangle(-400,-500,400,-480)
+rectangle(-400,-200,400,-180)
+rectangle(-400,100,400,120)
+rectangle(-400,400,400,420)
+
+--upper base
+
+lline(400,-1000,400,-1000)
+lline(-400,-1000,-550,-1150)
+lline(400,-1000,550,-1150)
+lline(-550,-1150,550,-1150)
+
+--beam at upper base
+
+rectangle(-600,-1150,600,-1170)
+
+--storage tank
+rectangle(-550,-1170,550,-2020)
+
+--upper portion
+
+l6=Arc(Coord(0,-1300),900,math.rad(232),math.rad(308),layer)
+b:append(l6)
+
+b:execute()

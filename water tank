@@ -1,0 +1,28 @@
+
+
+layer=active.proxy.layerByName("0")
+d=active.document()
+
+b=Builder(d)
+l1=Line(Coord(0,0), Coord(0,1000), layer);
+l2=Line(Coord(50,0), Coord(50,1000), layer);
+l3=Line(Coord(400,0), Coord(400,1000), layer);
+l4=Line(Coord(350,0), Coord(350,1000), layer);
+l5=Line(Coord(-50,1000), Coord(450,1000), layer);
+for i=0,1000,100
+do
+l6=Line(Coord(0,0+i), Coord(400,0+i), layer);
+b:append(l6)
+end
+
+l7=Arc(Coord(200,0),200,math.rad(180),math.rad(360),layer)
+l8=Line(Coord(-100,-250), Coord(500,-250), layer);
+l8=Line(Coord(0,0), Coord(-50,-250), layer);
+l9=Line(Coord(400,0), Coord(450,-250), layer);
+l10=Line(Coord(-50,-250), Coord(-50,-650), layer);
+l11=Line(Coord(-50,-650), Coord(450,-650), layer);
+l12=Line(Coord(450,-650), Coord(450,-250), layer);
+l13=Line(Coord(500,-250), Coord(-100,-250), layer);
+l14=Arc(Coord(200,-450),327,math.rad(219),math.rad(322),layer)
+b:append(l1):append(l2):append(l3):append(l4):append(l5):append(l7):append(l8):append(l9):append(l10):append(l11):append(l12):append(l13):append(l14)
+b:execute()

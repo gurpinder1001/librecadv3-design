@@ -1,0 +1,31 @@
+*/line
+layer=active.proxy.layerByName("0")
+d=active.document()
+b=Builder(d)
+function lline(x,y,xx,yy)
+l1=Line(Coord(x,y),Coord(xx,yy),layer)
+b:append(l1)
+b:execute()
+end
+lline(100,0,500,1000)
+lline(0,10,-400,-500)
+
+*/rectangle
+layer=active.proxy.layerByName("0")
+d=active.document()
+b=Builder(d)
+function rectangle(x,y,xx,yy)
+l1=Line(Coord(x,y),Coord(xx,y),layer)
+
+l2=Line(Coord(xx,y),Coord(xx,yy),layer)
+
+l3=Line(Coord(xx,yy),Coord(x,yy),layer)
+
+l4=Line(Coord(x,yy),Coord(x,y),layer)
+b:append(l1):append(l2):append(l3):append(l4)
+b:execute()
+end
+rectangle(0,0,500,1000)
+
+
+*/

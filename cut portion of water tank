@@ -1,0 +1,49 @@
+
+layer=active.proxy.layerByName("0")
+d=active.document()
+b=Builder(d)
+function lline(x,y,xx,yy)
+l1=Line(Coord(x,y),Coord(xx,yy),layer)
+b:append(l1)
+b:execute()
+end
+
+
+-- cut portion
+function cir(m,n,o)
+l11=Circle(Coord(m,n),o,layer)
+b:append(l11):execute()
+end
+--base
+cir(0,1450,300)
+--storage tank
+cir(0,1450,550)
+cir(0,1450,600)
+
+--piller
+cir(-400,1450,20)
+cir(400,1450,20)
+cir(0,1850,20)
+cir(0,1050,20)
+cir(-290,1175,20)
+cir(290,1175,20)
+cir(-290,1725,20)
+cir(290,1725,20)
+--beam
+lline(-280,1155,-20,1045)
+lline(-270,1175,-10,1065)
+lline(10,1065,270,1175)
+lline(20,1045,280,1155)
+lline(-380,1440,-290,1195)
+lline(-400,1430,-310,1185)
+lline(380,1440,290,1195)
+lline(400,1430,310,1185)
+
+lline(10,1835,270,1715)
+lline(20,1855,280,1735)
+lline(-10,1835,-270,1715)
+lline(-20,1855,-280,1735)
+lline(285,1705,390,1465)
+lline(305,1710,410,1470)
+lline(-285,1705,-390,1465)
+lline(-305,1710,-410,1470)

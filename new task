@@ -1,0 +1,110 @@
+You are supposed to make 3 views of the table, 
+
+Dimensions are
+
+slab ( or the top portion of table) 
+Height : 10mm
+Length : 350mm
+Width : 500mm
+
+Legs of table
+Height : 70mm
+Width : 35
+Length : 35
+
+
+
+
+
+@CAD team, this water tank is nice but needs some changes. We will do
+it tomorrow.
+
+Try to make things parametric.
+
+it means if make it as functions,
+
+for example,
+
+make_box(x, y, length, width)
+
+where x and y starting point of square. You need to calculate the end
+X and Y points by using maths like,
+
+X_endpoint = x + width
+Y_endpoint = y + length
+
+And then plot the box.
+
+*/slab
+
+layer=active.proxy.layerByName("0")
+d=active.document()
+b=Builder(d)
+l1=Line(Coord(0,0), Coord(350,0),  layer);
+l2=Line(Coord(350,0), Coord(350,500),  layer);
+l3=Line(Coord(350,500), Coord(0,500),  layer);
+l4=Line(Coord(0,500), Coord(0,0),  layer);
+--side view
+l5=Line(Coord(-30,0), Coord(-530,0),  layer);
+l6=Line(Coord(-530,0), Coord(-530,10),  layer);
+l7=Line(Coord(-530,10), Coord(-30,10),  layer);
+l8=Line(Coord(-30,10), Coord(-30,0),  layer);
+--front view
+l9=Line(Coord(-30,60), Coord(-380,60),  layer);
+l10=Line(Coord(-380,60), Coord(-380,70),  layer);
+l11=Line(Coord(-380,70), Coord(-30,70),  layer);
+l12=Line(Coord(-30,70), Coord(-30,60),  layer);
+
+b:append(l1):append(l2):append(l3):append(l4):append(l5):append(l6):append(l7):append(l8):append(l9):append(l10):append(l11):append(l12)
+
+b:execute()
+*/
+
+Here is the data you need :)
+
+http://goo.gl/I761K8
+
+is it clear to you all ? All should experiment this type of stuff.
+
+Don't be worried, if you face any difficulties, please feel free to
+ask! We are here to help. I know it may be difficult for a new person
+but seeing your previous work, I think you can easily to it. :-) Best
+of Luck!
+
+And feel free to do it, do it only when you are willing to do it. No
+pressure! I know its a sunday but if you feel bored or sitting free
+
+
+*/ table
+
+layer=active.proxy.layerByName("0")
+d=active.document()
+b=Builder(d)
+function rectangle(x,y,xx,yy)
+l1=Line(Coord(x,y),Coord(xx,y),layer)
+
+l2=Line(Coord(xx,y),Coord(xx,yy),layer)
+
+l3=Line(Coord(xx,yy),Coord(x,yy),layer)
+
+l4=Line(Coord(x,yy),Coord(x,y),layer)
+b:append(l1):append(l2):append(l3):append(l4)
+b:execute()
+end
+rectangle(100,0,350,500)
+rectangle(120,20,155,55)
+rectangle(295,20,330,55)
+rectangle(120,445,155,480)
+rectangle(295,445,330,480)
+rectangle(-500,0,0,10)
+rectangle(-480,10,-445,80)
+rectangle(-55,10,-20,80)
+rectangle(-350,300,0,310)
+rectangle(-330,310,-295,380)
+rectangle(-55,310,-20,380)
+
+
+
+
+
+*/

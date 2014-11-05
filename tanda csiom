@@ -1,0 +1,23 @@
+layer=active.proxy.layerByName("0")
+doc=active.document()
+bobj=Builder(doc)
+
+
+function line(x,y,xx,yy)
+
+line1 = Line(Coord(x,y),Coord(xx,yy),layer)
+
+bobj:append(line1):execute()
+end
+for i=0,20,0.5 do
+line(-130+i,-130+i,-115+i,-70+i)
+end
+--left center
+line(11,11,-100,-100)
+line(-13,30,-80,-40)
+line(-100,-100,-80,-40)
+line(11,11,-13,30)
+
+for i=0,20,0.5 do
+line(120-i*1,-120+i*3,5+i*1,-20+i*1.1)
+end

@@ -1,0 +1,63 @@
+
+layer=active.proxy.layerByName("0")
+d=active.document()
+b=Builder(d)
+function arcc(m,n,o,p,q)
+l1=Arc(Coord(m,n),o,math.rad(p),math.rad(q),layer)
+b:append(l1)
+b:execute()
+end
+arcc(0,0,60,50,310)
+arcc(400,0,75,158,180)
+arcc(425,0,40,45,320)
+function lline(x,y,w,z)
+l2=Line(Coord(x,y),Coord(w,z),layer)
+b:append(l2)
+b:execute()
+end
+lline(38,48,38,18)
+lline(38,18,20,18)
+lline(360,-70,360,50)
+lline(384,-5,458,-28)
+
+function ellip(e,f,g,h,i)
+l3=Ellipse(Coord(e,f),Coord(g,h),h,math.rad(0),math.rad(360),layer)
+b:append(l3)
+b:execute()
+end
+ellip(100,0,30,40,50)
+ellip(200,0,30,40,50)
+ellip(300,-25,15,30,40)
+ellip(300,50,30,-20,25)
+
+
+/ batman
+layer=active.proxy.layerByName("0")
+d=active.document()
+b=Builder(d)
+function ellip(m,n,o,p,q,r,s)
+l1=Ellipse(Coord(m,n),Coord(o,p),q,math.rad(r),math.rad(s),layer)
+b:append(l1)
+b:execute()
+end
+ellip(300,0,700,0,400,135,230)
+ellip(-50,400,100,250,110,125,240)
+ellip(-50,400,100,250,110,125,205)
+ellip(100,400,70,250,110,135,252)
+
+ellip(268,400,-30,250,110,110,220)
+
+ellip(415,400,-40,260,110,130,245)
+ellip(150,0,-600,0,400,135,230)
+ellip(60,-340,205,-200,150,95,310)
+
+function lline(x,y,xx,yy)
+l1=Line(Coord(x,y),Coord(xx,yy),layer)
+b:append(l1)
+b:execute()
+end
+lline(90,-250,230,-250)
+lline(90,-250,65,-330)
+lline(65,-330,50,-150)
+lline(230,-250,255,-330)
+lline(255,-330,260,-150)

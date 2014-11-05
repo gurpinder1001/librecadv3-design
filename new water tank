@@ -1,0 +1,55 @@
+
+layer=active.proxy.layerByName("0")
+d=active.document()
+b=Builder(d)
+function lline(x,y,xx,yy)
+l1=Line(Coord(x,y),Coord(xx,yy),layer)
+b:append(l1)
+b:execute()
+end
+--base of tank
+for i=0,20,1
+do
+lline(-500+i,1000-i,500-i,1000-i)
+end
+-- pillar
+for i=0,10,1
+do 
+lline(-400+i,980,-400+i,-1000)
+lline(-300+i,980,-300+i,-1000)
+lline(0+i,980,0+i,-1000)
+lline(300-i,980,300-i,-1000)
+lline(400-i,980,400-i,-1000)
+end
+--beam
+for i=0,10,1
+do
+lline(-400,-1000+i,400,-1000+i)
+lline(-400,-500+i,400,-500+i)
+lline(-400,-200+i,400,-200+i)
+lline(-400,100+i,400,100+i)
+lline(-400,400+i,400,400+i)
+end
+--upper base
+for i=0,150,1
+do
+lline(-400-i,-1000-i,400+i,-1000-i)
+end
+--beam at upper base
+for i=0,20,1
+do
+lline(-600,-1150-i,600,-1150-i)
+end
+--storage tank
+for i=0,550,5
+do
+lline(-550+i,-1170,-550+i,-2000)
+lline(550-i,-1170,550-i,-2000)
+end
+--upper portion
+for i=0,300,5
+do
+l6=Arc(Coord(0,-1720),300+i,math.rad(200),math.rad(335),layer)
+b:append(l6)
+end
+b:execute()

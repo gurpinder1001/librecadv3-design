@@ -1,0 +1,152 @@
+/* square
+
+layer = active.proxy.layerByName("0")
+l=Line(Coord(0,0), Coord(0,100), layer);
+l1=Line(Coord(0,100), Coord(100,100), layer);
+l2=Line(Coord(100,100), Coord(100,0), layer);
+l3=Line(Coord(0,0), Coord(100,0), layer);
+l4=Line(Coord(0,0), Coord(0,100), layer);
+d=active.document()
+Builder(d):append(l1):execute()
+Builder(d):append(l2):execute()
+Builder(d):append(l3):execute()
+Builder(d):append(l4):execute()
+*/
+
+
+*/
+
+layer = active.proxy.layerByName("0")
+l1=Line(Coord(0,0), Coord(0,100), layer);
+l2=Line(Coord(0,100), Coord(100,100), layer);
+l3=Line(Coord(100,100), Coord(100,0), layer);
+l4=Line(Coord(100,0), Coord(0,0), layer);
+
+l5=Line(Coord(-20,-20), Coord(-20,120), layer);
+l6=Line(Coord(-20,120), Coord(120,120), layer);
+l7=Line(Coord(120,120), Coord(120,-20), layer);
+l8=Line(Coord(120,-20), Coord(-20,-20), layer);
+d=active.document()
+Builder(d):append(l1):execute()
+Builder(d):append(l2):execute()
+Builder(d):append(l3):execute()
+Builder(d):append(l4):execute()
+Builder(d):append(l5):execute()
+Builder(d):append(l6):execute()
+Builder(d):append(l7):execute()
+Builder(d):append(l8):execute()
+*/
+
+
+*/ concentric circle 
+ly=active.proxy.layerByName("0")
+d=active.document()
+
+b=Builder(d)
+for i=0,100,25
+do
+l1=Circle(Coord(0,0),100+i,ly)
+b:append(l1)
+end
+b:execute()
+ */
+
+*/ ellipse
+ly=active.proxy.layerByName("0")
+d=active.document()
+
+b=Builder(d)
+l1=Ellipse(Coord(0,0),Coord(100,100),150,math.rad(0),math.rad(360),ly)
+b:append(l1)
+b:execute()
+*/
+
+*/ arc
+
+ly=active.proxy.layerByName("0")
+d=active.document()
+
+b=Builder(d)
+l1=Arc(Coord(0,0),150,math.rad(0),math.rad(60),ly)
+b:append(l1)
+b:execute()
+*/
+*/ circle
+ 
+layer=active.proxy.layerByName("0")
+d=active.document()
+
+b=Builder(d)
+
+l1=Circle(Coord(0,0),100,layer)
+b:append(l1)
+b:execute()
+*/
+*/
+ 
+layer=active.proxy.layerByName("0")
+d=active.document()
+
+b=Builder(d)
+
+l1=Circle(Coord(0,0),200,layer)
+
+l2=Arc(Coord(0,0),150,math.rad(-60),math.rad(200),layer)
+b:append(l1):append(l2)
+b:execute()
+*/
+*/ vadafone 
+
+layer=active.proxy.layerByName("0")
+d=active.document()
+
+b=Builder(d)
+l1=Arc(Coord(0,0),150,math.rad(-81),math.rad(90),layer)
+l2=Arc(Coord(0,-30),180,math.rad(90),math.rad(288),layer)
+l3=Circle(Coord(0,0),240,layer)
+l4=Line(Coord(23,-146), Coord(52,-205), layer)
+
+b:append(l1):append(l2):append(l3):append(l4)
+b:execute()
+*/
+*/ toyota
+
+ly=active.proxy.layerByName("0")
+d=active.document()
+
+b=Builder(d)
+l1=Ellipse(Coord(0,0),Coord(0,80),150,math.rad(0),math.rad(360),ly)
+
+l2=Ellipse(Coord(0,-50),Coord(0,-30),100,math.rad(0),math.rad(360),ly)
+l3=Ellipse(Coord(0,0),Coord(40,0),80,math.rad(0),math.rad(360),ly)
+
+b:append(l1):append(l2):append(l3)
+b:execute()
+*/
+*/  water  tank
+
+layer=active.proxy.layerByName("0")
+d=active.document()
+
+b=Builder(d)
+l1=Line(Coord(0,0), Coord(0,1000), layer);
+l2=Line(Coord(50,0), Coord(50,1000), layer);
+l3=Line(Coord(400,0), Coord(400,1000), layer);
+l4=Line(Coord(350,0), Coord(350,1000), layer);
+l5=Line(Coord(-50,1000), Coord(450,1000), layer);
+for i=0,1000,100
+do
+l6=Line(Coord(0,0+i), Coord(400,0+i), layer);
+b:append(l6)
+end
+
+l7=Arc(Coord(200,0),200,math.rad(180),math.rad(360),layer)
+l8=Line(Coord(-100,-250), Coord(500,-250), layer);
+l8=Line(Coord(0,0), Coord(-50,-250), layer);
+l9=Line(Coord(400,0), Coord(450,-250), layer);
+l10=Line(Coord(-50,-250), Coord(-50,-650), layer);
+l11=Line(Coord(-50,-650), Coord(450,-650), layer);
+l12=Line(Coord(450,-650), Coord(450,-250), layer);
+l13=Arc(Coord(200,-650),250,math.rad(180),math.rad(360),layer)
+b:append(l1):append(l2):append(l3):append(l4):append(l5):append(l7):append(l8):append(l9):append(l10):append(l11):append(l12):append(l13)
+b:execute()
